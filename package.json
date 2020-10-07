@@ -1,0 +1,43 @@
+{
+  "name": "graphql-playground",
+  "version": "1.0.0",
+  "description": "Pet project with React,Appolo,mLab",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/voitd/graphql.git"
+  },
+  "author": "Dimytr Voitenko <dimytr.voitenko@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voitd/graphql/issues"
+  },
+  "homepage": "https://github.com/voitd/graphql#readme",
+  "scripts": {
+    "dev": "nodemon server/app.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@yarnpkg/pnpify": "^2.3.1",
+    "add": "^2.0.6",
+    "apollo-boost": "^0.4.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "mongoose": "^5.10.8",
+    "nodemon": "^2.0.4",
+    "react-apollo": "^3.1.5",
+    "react-swipeable-views": "^0.13.9",
+    "recompose": "^0.30.0",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.3",
+    "prettier": "^2.1.2"
+  }
+}
