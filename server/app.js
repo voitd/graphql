@@ -1,15 +1,23 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-const schema = require('../schema/schema');
+const schema = require('../schema/schema.js');
 const mongoose = require('mongoose');
+
+const user = 'void';
+const pass = '123123123mlab';
+const clusterName = 'cluster0.bzwui.mongodb.net';
+const dbName = 'graphql-tutorial';
+
+const connectionString = `mongodb+srv://${user}:${pass}@${clusterName}/${dbName}?retryWrites=true&w=majority`;
 
 const app = express();
 const PORT = 3000;
 
-mongoose.connect(
-  'mongodb+srv://void:123123123mlab@cluster0.bzwui.mongodb.net/graphql-tutor?retryWrites=true&w=majority',
-  { useNewUrlParser: true }
-);
+mongoose.connect(connectionString, { useNewUrlParser: true });
+
+const dbConnection = mongoose.connection;
+dbConnection.on('error', (err) => console.error(`[Error] ${err}`));
+dbConnection.once('open', () => console.log('[Log] Connected to DB success!'));
 
 app.use(
   '/graphql',
@@ -19,10 +27,6 @@ app.use(
   })
 );
 
-const dbConnection = mongoose.connection;
-dbConnection.on('error', (err) => console.error(`Connection error: ${err}`));
-dbConnection.once('open', () => console.log('Connected to DB!'));
-
 app.listen(PORT, (err) => {
-  err ? console.log(`Error:${err}`) : console.log(`Server started at ${PORT}!`);
+  err ? console.log(`Error: ${err}`) : console.log(`Server started at ${PORT}!`);
 });

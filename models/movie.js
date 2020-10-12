@@ -7,4 +7,4 @@ const movieSchema = new Schema({
   directorId: String
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Movie', movieSchema, 'movies');
