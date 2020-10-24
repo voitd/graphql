@@ -13,7 +13,7 @@ const connectionString = `mongodb+srv://${user}:${pass}@${clusterName}/${dbName}
 const app = express();
 const PORT = 3000;
 
-mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.connect(connectionString, { useNewUrlParser: true,  useUnifiedTopology: true  });
 
 const dbConnection = mongoose.connection;
 dbConnection.on('error', (err) => console.error(`[Error] ${err}`));
